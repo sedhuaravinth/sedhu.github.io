@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object module</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="icon" type="img/png" href="img/icon.png">   
+    <style>
+        body{
+            background-image: url("img/back.png");
+            background-size: cover;
+            background-position: center center;
+        }
+        .button{
+            font-size: 22px;
+            text-align: center;
+            line-height: 44px;
+            background-color: gainsboro;
+            color: #000;
+            border-radius: 10px;
+            padding: 5px 25px 5px 25px;
+            outline: 0 !important;
+            box-shadow: 0 4px 0 antiquewhite;
+            transition: all 0.50s ease-in-out;
+            margin-top: -4px;
+        }
+        .button:hover{
+            background-color: paleturquoise;
+            box-shadow: 0 4px 0 gainsboro;
+        }
+        .button:active{
+            margin-top: 0px;
+            box-shadow: none;
+        }
+        .center{
+            position: absolute;top: 50%;left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        #model-back{
+            background-color: rgba(0,0,0,0.45);
+            position: fixed;
+            top: 0px;left: 0px;
+            width: 100%;height: 100%;
+            opacity: 0;
+            z-index: -10;
+            transition: opacity 0.25s ease-in-out,z-index 0.25s ease-in-out; 
+        }
+        #model-back.active{
+            opacity: 1;
+            z-index: 10;
+        }
+        #model-text{
+            position: fixed;
+            opacity: 0;
+            z-index: -10;
+            background-color: white;
+            top: 50%;left: 50%;
+            max-width: 800px;
+            padding: 25px;
+            transform: translate(-50%,-50%);
+            transition: opacity 0.25s ease-in-out,z-index 0.25s ease-in-out; 
+        }
+        #model-text.active{
+            opacity: 1;
+            z-index: 11;
+        }
+        h1,h3,p{
+            font-family: 'Indie Flower', cursive;            
+        }
+        .text-right{
+            text-align: right;
+        }
+        .button--close:hover{
+            background-color: wheat;
+        }
+        .button--accpet{
+            background-color: rgb(31, 31, 235);
+        }
+        .button--accpet:hover{
+            background-color: cadetblue
+        }
+        .extra{
+            background-color: rgb(37, 37, 77);
+            text-decoration: none;
+            text-align: center;
+            padding: 1em 1.5em;
+            color: azure; 
+            position: fixed;top:300px ;left: 500px;
+            border-radius: 20px;                       
+        }
+        .extras{
+            background-color: rgb(37,37,77);
+            text-decoration: none;
+            text-align: center;
+            padding: 1em 1.5em;
+            color: azure; 
+            border-radius: 20px;  
+            position: fixed;top:300px ;left: 900px;                     
+        }
+        footer{
+            font-size: 20px;color: black;
+        }
+        
+
+    </style>
+</head>
+<body>
+    
+    <button type="button" class="button center js-open">OPEN HERE</button>
+    <div>  <a href="8bit/index.html" target="_blank" class="extra">8bit website</a></div>
+    <div><a href="calculator/index.html" target="_blank" class="extras">calculator project</a></div>   
+   
+
+    <div id="model-back"></div>
+    <div id="model-text">
+        <h1>Crow and the peacock!!</h1>
+        <hr>
+        <p>Once there was a crow who wishes to be colorful and beautiful like other birds.<br> He then went to the parrot and shared his thoughts. </p>
+        <p>But parrot said peacock is most beautiful bird so talk to him. <br>Then the crow went to the peacock and told him about his looks. </p>
+        <p>Then the peacock replied,” You are the luckiest bird that has been never caged in life<br> and we because of our beauty stay caged, and you are always free.”</p>
+        <p>After listening to this,<br> crow realized his mistake and thanked God for making him like this and he flew away happily.</p>
+        <h3>//Never compare yourself to others.<br> Be happy with what you have and what you are.//</h3>
+    
+    <div class="text-right">
+        <button type="button" class="button button--close js-close">CLOSE HERE</button>
+        <button type="button" class="button button--accept js-close">ACCEPT</button>
+    </div>
+    </div>
+    
+    
+
+    <script>
+        const openbtn=document.querySelector(".js-open")
+        const modelback=document.getElementById("model-back")
+        const modeltext=document.getElementById("model-text")
+        openbtn.addEventListener("click",function(event){
+            event.preventDefault()
+            modelback.classList.add("active")
+            modeltext.classList.add("active")
+        })
+
+        const closebtn=document.querySelectorAll(".js-close")
+        closebtn.forEach (node => {
+            node.addEventListener("click",function (e) { 
+                e.preventDefault()
+                modelback.classList.remove("active")
+                modeltext.classList.remove("active")                   
+                
+            })           
+        })
+  
+    </script>
+    <hr>
+    <footer>
+        <p>&copy;sedhu</p><br>
+    </footer>
+    
+</body>
+</html>
